@@ -31,6 +31,11 @@ public class OnlinerTest {
         OnlinerMainPageAuthorized onlinerMainPageAuthorized = new OnlinerMainPageAuthorized();
         Assert.assertTrue(OnlinerMainPageAuthorized.isMenuButtonPresent(),"Authorized page should have 'logout button'");
 
+        onlinerMainPageAuthorized.clickMenuButton();
+        System.out.println("get to this?");
+        onlinerMainPageAuthorized.clickLogoutButton();
+        Assert.assertTrue(onlinerMainPage.isPresent(), "Unauthorized page should have 'login button'");
+
         ListProducts products = new ListProducts();
         int sectionIdx = products.getRandomSection();
         String sectionLinkText = products.getSectionText(sectionIdx);
@@ -39,14 +44,7 @@ public class OnlinerTest {
         ProductPage sectionPage = new ProductPage();
         Assert.assertEquals(sectionLinkText, sectionPage.getTitleText(), "Link and page title should match.");
 
-        
+
     }
-
-
-
-
-
-
-
 
 }
